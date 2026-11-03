@@ -1,0 +1,8 @@
+const $=id=>document.getElementById(id),msg=$('msg');
+const say=(m,ok)=>{msg.textContent=m;msg.classList.add('visible');msg.style.color=ok?'#7CFFB2':''};
+async function load(){const r=await fetch('/api/privacy/status');if(r.status===401){location.href='login.html';return}const s=await r.json();$('consentBadge').textContent=s.accepted?'AUTORIZADO':'SIN AUTORIZACIÓN';$('consentBadge').className='pill'+(s.accepted?' green':'');$('consentMeta').textContent=s.accepted?`aceptada ${new Date(s.acceptedAt).toLocaleDateString()} · v${s.version}`:'pendiente';if(!s.accepted&&new URLSearchParams(location.search).get('consent'))say('Para registrar entrenamientos y comidas debes autorizar el tratamiento de tus datos.')}
+async function consent(accept){const r=await fetch('/api/privacy/consent',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({accept})});const d=await r.json();say(d.message||d.error,r.ok);load()}
+$('acceptBtn').onclick=()=>consent(true);$('revokeBtn').onclick=()=>consent(false);
+$('exportBtn').onclick=async()=>{const r=await fetch('/api/privacy/export');if(!r.ok)return say('No se pudo exportar');const a=document.createElement('a');a.href=URL.createObjectURL(await r.blob());a.download='cyberfit-mis-datos.json';a.click();URL.revokeObjectURL(a.href)};
+$('deleteBtn').onclick=async()=>{if(!confirm('Esta acción es permanente. ¿Continuar?'))return;const r=await fetch('/api/privacy/account',{method:'DELETE',headers:{'Content-Type':'application/json'},body:JSON.stringify({confirm:$('delConfirm').value,password:$('delPassword').value,code:$('delCode').value})});const d=await r.json();if(r.ok){location.href='index.html'}else say(d.error)};
+load();

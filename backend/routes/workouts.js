@@ -1,0 +1,10 @@
+const express = require('express');
+const requireAuth = require('../middleware/authMiddleware');
+const { createWorkout, listWorkouts, summary } = require('../controllers/workoutController');
+const { requireConsent } = require('../controllers/privacyController');
+const router = express.Router();
+router.use(requireAuth);
+router.get('/summary', summary);
+router.get('/', listWorkouts);
+router.post('/', requireConsent, createWorkout);
+module.exports = router;

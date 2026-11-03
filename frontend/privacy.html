@@ -1,0 +1,17 @@
+<!DOCTYPE html><html lang="es"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>CyberFit — Privacidad</title><link rel="stylesheet" href="css/styles.css"><script src="js/csrf.js"></script></head><body>
+<div class="page-root"><div class="topbar"><div><div class="page-kicker">PRIVACY / LEY 1581 DE 2012</div><h1 class="page-title">Privacidad y datos personales</h1><p class="page-subtitle">Política de tratamiento y ejercicio de tus derechos como titular.</p></div><span id="consentBadge" class="pill">—</span></div>
+<article class="panel"><div class="panel-title"><h2>Política de tratamiento</h2><span class="meta">v2026-10</span></div>
+<p class="note"><b>Datos que se tratan:</b> identificación (nombre, correo), credenciales (contraseña como hash, segundo factor cifrado), perfil y metas, y datos <b>sensibles relacionados con la salud</b> (entrenamientos y alimentación).</p>
+<p class="note" style="margin-top:8px"><b>Finalidad:</b> prestar el servicio de seguimiento de entrenamiento, mostrar tu progreso y proteger tu cuenta. No se venden ni se comparten con terceros. El video de la cámara se procesa en tu navegador y no se envía al servidor.</p>
+<p class="note" style="margin-top:8px"><b>Tus derechos:</b> conocer, actualizar, rectificar y suprimir tus datos, y revocar la autorización. Al ser datos sensibles, no estás obligado a autorizar su tratamiento, pero sin autorización no se pueden registrar entrenamientos ni comidas.</p>
+<p class="note" style="margin-top:8px"><b>Retención:</b> la bitácora de seguridad se conserva 180 días; las sesiones expiran a las 24 h; tus datos se conservan hasta que elimines la cuenta. CyberFit es un prototipo académico.</p></article>
+<article class="panel" style="margin-top:16px"><div class="panel-title"><h2>Autorización</h2><span class="meta" id="consentMeta"></span></div><div id="msg" class="error-msg"></div>
+<div style="display:flex;gap:9px;flex-wrap:wrap"><button class="primary-btn" id="acceptBtn" style="width:auto">Autorizar tratamiento</button><button class="secondary-btn" id="revokeBtn">Revocar autorización</button></div></article>
+<article class="panel" style="margin-top:16px"><div class="panel-title"><h2>Tus derechos</h2><span class="meta">acceso · rectificación · supresión</span></div>
+<div style="display:flex;gap:9px;flex-wrap:wrap"><button class="secondary-btn" id="exportBtn">Descargar mis datos (JSON)</button><a class="secondary-btn" href="profile.html" style="text-decoration:none">Rectificar mi perfil</a></div>
+<h3 style="margin:20px 0 8px">Eliminar mi cuenta</h3><p class="note">Borra de forma definitiva tu cuenta, entrenamientos, comidas, riesgos y bitácora.</p>
+<div class="field"><label for="delPassword">Contraseña (si tu cuenta la tiene)</label><input id="delPassword" type="password" autocomplete="current-password"></div>
+<div class="field"><label for="delCode">Código 2FA (si lo tienes activo)</label><input id="delCode" type="text" inputmode="numeric" maxlength="6"></div>
+<div class="field"><label for="delConfirm">Escribe ELIMINAR para confirmar</label><input id="delConfirm" type="text"></div>
+<button class="danger-btn" id="deleteBtn">Eliminar mi cuenta</button></article></div>
+<script src="js/navbar.js"></script><script src="js/privacy.js"></script></body></html>

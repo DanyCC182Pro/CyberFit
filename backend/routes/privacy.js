@@ -1,0 +1,10 @@
+const express = require('express');
+const requireAuth = require('../middleware/authMiddleware');
+const c = require('../controllers/privacyController');
+const router = express.Router();
+router.use(requireAuth);
+router.get('/status', c.status);
+router.post('/consent', c.setConsent);
+router.get('/export', c.exportData);
+router.delete('/account', c.deleteAccount);
+module.exports = router;
