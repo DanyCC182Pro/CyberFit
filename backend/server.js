@@ -109,5 +109,5 @@ app.use((error, req, res, next) => {
 });
 
 app.listen(PORT, '0.0.0.0', () => {
-  console.log(`🚀 CyberFit corriendo en el puerto ${PORT}`);
+  console.log(`🚀 CyberFit escuchando en el puerto ${PORT}`);
 });
